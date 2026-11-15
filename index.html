@@ -4,6 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="theme-color" content="#141b4d">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Blocks Blitz">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>Blocks Blitz</title>
 <style>
 html,body{margin:0;height:100%;background:#141b4d;overflow:hidden;overscroll-behavior:none;
@@ -1087,6 +1094,11 @@ window.__back = () => {
 window.__perf = () => ({ renderCount, res, autoLevel, sprites: sprites.size });
 applySettings(); resize(); requestAnimationFrame(frame);
 })();
+</script>
+<script>
+if ('serviceWorker' in navigator && location.protocol.indexOf('http') === 0) {
+  window.addEventListener('load', function () { navigator.serviceWorker.register('sw.js').catch(function () {}); });
+}
 </script>
 </body>
 </html>
